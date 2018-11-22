@@ -8,9 +8,8 @@ from astropy.io import fits
 
 class Spectrum(object):
     def __init__(self, filename):
-        with fits.open(filename) as hdu:
-            self.header = hdu[0].header
-            self.data = hdu[0].data
+        self.data = fits.open(filename)
+        fits.close(filename)
 
     @property
     def wavelength(self):
