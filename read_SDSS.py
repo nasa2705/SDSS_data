@@ -3,9 +3,9 @@ import argparse
 import astropy
 import matplotlib.pyplot as plt
 
-parser = argparse.ArgumentParser(description="This program does stuff",
-                                 usage="name_of_script ...",
-                                 epilog="this is text added to the end of the help")
+parser = argparse.ArgumentParser(description="This program reads a given SDSS"+
+                                 " spectrum and plots it.",
+                                 usage="read_SDSS.py <filename>")
 
 parser.add_argument('-f', '--file',
                     help="File to open.",
