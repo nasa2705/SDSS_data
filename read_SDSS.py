@@ -1,4 +1,4 @@
-from .class_spectra import Spectra
+from class_spectra import Spectrum
 import argparse
 import astropy
 import matplotlib.pyplot as plt
@@ -8,8 +8,7 @@ parser = argparse.ArgumentParser(description="This program reads a given SDSS"+
                                  usage="read_SDSS.py <filename>")
 
 parser.add_argument('-f', '--file',
-                    help="File to open.",
-                    type=argparse.FileType('r'))
+                    help="File to open.")
 args = parser.parse_args()
 
 
@@ -23,4 +22,5 @@ y = spec1.flux
 plt.plot(x,y)
 
 plt.xlabel("Wavelength")
-plt.yalbel("Flux")
+plt.ylabel("Flux")
+plt.show()
