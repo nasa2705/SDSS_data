@@ -8,7 +8,7 @@ from astropy.io import fits
 
 class Spectrum(object):
     def __init__(self, filename):
-        self.data = fits.open(filename)
+        self.data = fits.open(filename, 'b')
         fits.close(filename)
 
     @property
