@@ -6,10 +6,11 @@ creates class for reading in fits file
 
 from astropy.io import fits
 
+
 class Spectrum(object):
     def __init__(self, filename):
-        self.data = fits.open(filename, 'b')
-        fits.close(filename)
+        with fits.open(filename) as hdulist:
+            self.data = hdulist
 
     @property
     def wavelength(self):
