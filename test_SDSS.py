@@ -8,9 +8,11 @@ from pathlib import Path
 
 test_file_dir = Path(os.environ['TEST_FILE_DIR'])
 
+assert test_file_dir.exists(), '$TEST_FILE_DIR does not exist.'
+
 test_file = test_file_dir / "spec-4055-55359-0001.fits"
 
-print(test_file)
+assert test_file.exists(), 'Test file does not exist.'
 
 
 def test_read_spectrum():
