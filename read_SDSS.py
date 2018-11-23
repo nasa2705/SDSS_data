@@ -4,6 +4,7 @@ import astropy
 from astropy.io import fits
 import matplotlib.pyplot as plt
 import re
+from pathlib import Path
 
 parser = argparse.ArgumentParser(description="This program reads a given SDSS"+
                                  " spectrum and plots it.",
@@ -12,10 +13,12 @@ parser = argparse.ArgumentParser(description="This program reads a given SDSS"+
 parser.add_argument('-f', '--file',
                     help="File to open.")
 args = parser.parse_args()
+print(args.file)
 
-# filematch=re.match("\S+/([a-zA-Z]+)\-([0-9]+)\-([0-9]+)\-([0-9]+).fits",args.file)
-# 
-# assert filematch is not None, "The filename is not correct."
+filematch=re.search("[^\/]([A-z]+)\-([0-9]+)\-([0-9]+)\-([0-9]+).fits$",
+                    str(args.file))
+
+assert filematch is not None, "The filename is not correct."
 
 spec1 = Spectrum(args.file)
 
