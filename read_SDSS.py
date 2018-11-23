@@ -13,9 +13,9 @@ parser.add_argument('-f', '--file',
                     help="File to open.")
 args = parser.parse_args()
 
-filematch=re.match("\S+/([a-zA-Z]+)\-([0-9]+)\-([0-9]+)\-([0-9]+).fits",args.file)
-
-assert filematch is not None, "The filename is not correct."
+# filematch=re.match("\S+/([a-zA-Z]+)\-([0-9]+)\-([0-9]+)\-([0-9]+).fits",args.file)
+# 
+# assert filematch is not None, "The filename is not correct."
 
 spec1 = Spectrum(args.file)
 
